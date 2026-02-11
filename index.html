@@ -285,11 +285,23 @@
   }
 
   function sayYes() {
-    modal.style.display = "flex";
-    audio.currentTime = 0;
-    audio.play();
-    startConfetti();
-  }
+  // Show the modal
+  modal.style.display = "flex";
+
+  // Play the audio triggered by user click
+  audio.pause();           // Stop in case it was already playing
+  audio.currentTime = 0;   // Start from the beginning
+  audio.muted = false;     // Make sure it’s unmuted
+
+  // Try to play and catch any browser restrictions
+  audio.play().catch(() => {
+    console.log("Audio blocked by browser. Click again to allow.");
+  });
+
+  // Start confetti
+  startConfetti();
+}
+
 
   function closeModal() {
     modal.style.display = "none";
@@ -317,3 +329,4 @@
 
 </body>
 </html>
+
