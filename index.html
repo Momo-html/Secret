@@ -1,360 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Secret 👀</title>
+  <meta charset="UTF-8">
+  <title>Will You Be My Valentine? 💘</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-  body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    color: #fff;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-  }
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
 
-  /* Surprise Overlay */
-  #surpriseScreen {
-    position: fixed;
-    inset: 0;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-  }
-
-  #openBtn {
-    padding: 15px 30px;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    background: white;
-    color: black;
-  }
-
-  .card {
-    background: rgba(255,255,255,0.2);
-    background: rgba(255, 255, 255, 0.2);
-    padding: 40px;
-    border-radius: 20px;
-    max-width: 420px;
-@@ -64,7 +42,7 @@
-  .buttons {
-    margin-top: 20px;
-    position: relative;
-    height: 60px;
-    height: 70px;
-  }
-
-  button {
-@@ -88,11 +66,12 @@
-  }
-
-  .note {
-    font-size: 0.9em;
-    opacity: 0.85;
-    font-size: 0.95em;
-    opacity: 0.9;
-    margin-top: 15px;
-  }
-
-  /* Floating Hearts */
-  .heart {
-    position: absolute;
-    bottom: -20px;
-@@ -107,6 +86,7 @@
-    to { transform: translateY(-110vh); opacity: 0; }
-  }
-
-  /* Error popup */
-  .error {
-    position: absolute;
-    top: 20px;
-@@ -116,65 +96,63 @@
-    color: #ff4b5c;
-    padding: 10px 16px;
-    border-radius: 12px;
-    font-size: 0.85em;
-    font-size: 0.9em;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    animation: fadeOut 2.5s forwards;
-    z-index: 3;
-    z-index: 5;
-  }
-
-  @keyframes fadeOut { to { opacity: 0; } }
-  @keyframes fadeOut {
-    to { opacity: 0; }
-  }
-
-  /* Modal styling */
-  /* Modal */
-  .modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    background: rgba(0,0,0,0.5);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 200;
-    z-index: 10;
-    padding: 20px;
-  }
-
-  .modal-content {
-    background: white;
-    color: #ff4b5c;
-    padding: 25px 20px;
-    border-radius: 25px;
-    max-width: 400px;
-    padding: 30px;
-    border-radius: 20px;
-    max-width: 380px;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  }
-
-  .modal-content h2 {
-    margin: 0 0 10px;
-    font-size: 1.8em;
-    animation: pop 0.3s ease;
-    overflow: hidden;
-  }
-
-  .modal-content p {
-    margin: 0 0 15px;
-    font-size: 1em;
-  @keyframes pop {
-    from { transform: scale(0.85); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-
-  .modal-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
-
-  .close-btn {
-    margin-top: 20px;
-    background: #ff4b5c;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1em;
-  }
-
-  /* Confetti */
-  .confetti {
-    position: absolute;
-    width: 8px;
-@@ -188,7 +166,52 @@
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(200px) rotate(360deg); opacity: 0; }
-  }
-
-  /* Mobile adjustments */
-  @media (max-width: 600px) {
     .card {
-      padding: 50px 25px;
-      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 420px;
+      width: 90%;
+      position: relative;
+      z-index: 2;
     }
 
     h1 {
-      font-size: 2.5em;
+      margin-bottom: 10px;
+      font-size: 2.1em;
     }
 
     .subtitle {
-      font-size: 1.2em;
+      font-size: 1em;
+      opacity: 0.9;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      position: relative;
+      height: 60px;
     }
 
     button {
-      padding: 16px 32px;
-      font-size: 1.2em;
-      border-radius: 40px;
+      border: none;
+      padding: 12px 26px;
+      border-radius: 30px;
+      font-size: 1em;
+      cursor: pointer;
+      margin: 10px;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    #yesBtn {
+      background: #ff4b5c;
+      color: white;
+    }
+
+    #noBtn {
+      background: white;
+      color: #ff4b5c;
     }
 
     .note {
-      font-size: 1.1em;
-      margin-top: 20px;
+      font-size: 0.9em;
+      opacity: 0.85;
+      margin-top: 15px;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp linear infinite;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    .error {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      color: #ff4b5c;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 0.85em;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      animation: fadeOut 2.5s forwards;
+      z-index: 3;
+    }
+
+    @keyframes fadeOut { to { opacity: 0; } }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 4;
     }
 
     .modal-content {
-      padding: 40px 25px;
+      background: white;
+      color: #ff4b5c;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 350px;
+      width: 85%;
+      animation: pop 0.3s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .modal-content h2 {
-      font-size: 1.8em;
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
-    .modal-content p {
-      font-size: 1.2em;
+    .modal-content img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 10px;
     }
 
     .close-btn {
-      padding: 14px 28px;
-      font-size: 1.1em;
+      margin-top: 20px;
+      background: #ff4b5c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
     }
-  }
-</style>
 
+    .confetti {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      opacity: 0.8;
+      z-index: 5;
+      pointer-events: none;
+      animation: confettiFall linear forwards;
+    }
 
+    @keyframes confettiFall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(200px) rotate(360deg); opacity: 0; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Surprise Overlay -->
-<div id="surpriseScreen">
-  <button id="openBtn" onclick="openSurprise()">Open</button>
-</div>
+  <div class="card">
+    <h1>Will you be my Valentine? 💘</h1>
+    <div class="subtitle">Eto yung Secret 😛</div>
 
-<div class="card">
-  <h1>Will you be my Valentine? 💘</h1>
-  <div class="subtitle">Eto yung Secret 😛</div>
+    <div class="buttons">
+      <button id="yesBtn" onclick="sayYes()">Yes 💖</button>
+      <button id="noBtn" onclick="handleNo()">No 😐</button>
+    </div>
 
-  <div class="buttons">
-    <button id="yesBtn" onclick="sayYes()">Yes 💖</button>
-    <button id="noBtn" onclick="handleNo()">No 😐</button>
+    <div class="note" id="jokeBox">
+      UHHHHHhhhhhhhhhhmmmmmmmmmmmmmmmmmmmmm
+    </div>
   </div>
 
-  <div class="note" id="jokeBox">
-    KINABAHANNN
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal-content" id="modalContent">
+      <h2>💖 Happy Valentimes! 💖</h2>
+      <p>Sa MOA tayo. Nunuod UAAP</p>
+      <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Valentine GIF">
+      <button class="close-btn" onclick="closeModal()">Okay 🥰</button>
+    </div>
   </div>
-</div>
 
-<div class="modal" id="modal">
-  <div class="modal-content" id="modalContent">
-    <h2>💖 Happy Valentimes! 💖</h2>
-    <p>Sa MOA tayo. Nunuod UAAP</p>
-    <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Valentine GIF">
-    <button class="close-btn" onclick="closeModal()">Okay 🥰</button>
-  </div>
-</div>
+  <audio id="valentineSong" src="buksan-edited.mp3"></audio>
 
-<audio id="valentineSong" src="buksan-edited.mp3"></audio>
+  <script>
+    const noJokes = [
+      "Are you sure? 🤨",
+      "Talaga ba?",
+      "Final answer na yan?",
+      "Think again 😌",
+      "Sure ka talaga?"
+    ];
 
-<script>
-  // Surprise overlay
-  function openSurprise() {
-    document.getElementById("surpriseScreen").style.display = "none";
-  }
+    const errors = [
+      "Error 404: No not found",
+      "Action blocked by Valentine System",
+      "Please reconsider",
+      "That option is unavailable",
+      "Nice try 😐"
+    ];
 
-  // Hearts animation
-  function createHeart() {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerText = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 18 + 14 + "px";
-    heart.style.animationDuration = Math.random() * 3 + 4 + "s";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
-  }
-  setInterval(createHeart, 450);
+    let errorIndex = 0;
+    let dodgeMode = false;
+    let yesScale = 1;
+    let noScale = 1;
 
-  // Buttons functionality
-  const noJokes = ["Are you sure? 🤨","Talaga ba?","Final answer na yan?","Think again 😌","Sure ka talaga?"];
-  const errors = ["Error 404: No not found","Action blocked by Valentine System","Please reconsider","That option is unavailable","Nice try 😐"];
-  let errorIndex = 0, dodgeMode = false, yesScale = 1, noScale = 1;
-  const noBtn = document.getElementById("noBtn");
-  const yesBtn = document.getElementById("yesBtn");
-  const jokeBox = document.getElementById("jokeBox");
-  const modal = document.getElementById("modal");
-  const audio = document.getElementById("valentineSong");
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
 
-  function handleNo() {
-    showError(errors[errorIndex]);
-    jokeBox.innerText = noJokes[Math.floor(Math.random() * noJokes.length)];
-    yesScale += 0.2; yesBtn.style.transform = `scale(${yesScale})`;
-    if (noScale > 0.4) { noScale -= 0.1; noBtn.style.transform = `scale(${noScale})`; }
-    errorIndex = (errorIndex + 1) % errors.length;
-    if (!dodgeMode && errorIndex === 3) enableDodge();
-  }
+    function handleNo() {
+      showError(errors[errorIndex]);
 
-  function showError(text) {
-    const err = document.createElement("div");
-    err.className = "error";
-    err.innerText = text;
-    document.body.appendChild(err);
-    setTimeout(() => err.remove(), 2500);
-  }
+      const randomNoJoke = noJokes[Math.floor(Math.random() * noJokes.length)];
+      document.getElementById("jokeBox").innerText = randomNoJoke;
 
-  function enableDodge() {
-    dodgeMode = true;
-    document.addEventListener("mousemove", (e) => {
-      const rect = noBtn.getBoundingClientRect();
-      const buffer = 50;
-      if(e.clientX > rect.left - buffer && e.clientX < rect.right + buffer &&
-         e.clientY > rect.top - buffer && e.clientY < rect.bottom + buffer) {
-        const x = Math.random() * (window.innerWidth - rect.width);
-        const y = Math.random() * (window.innerHeight - rect.height);
-        noBtn.style.position = "absolute";
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
+      yesScale += 0.2;
+      yesBtn.style.transform = `scale(${yesScale})`;
+
+      if (noScale > 0.4) {
+        noScale -= 0.1;
+        noBtn.style.transform = `scale(${noScale})`;
       }
-    });
-  }
 
-  function sayYes() {
-  // Show the modal
-  modal.style.display = "flex";
-
-  // Play the audio triggered by user click
-  audio.pause();           // Stop in case it was already playing
-  audio.currentTime = 0;   // Start from the beginning
-  audio.muted = false;     // Make sure it’s unmuted
-
-  // Try to play and catch any browser restrictions
-  audio.play().catch(() => {
-    console.log("Audio blocked by browser. Click again to allow.");
-  });
-
-  // Start confetti
-  startConfetti();
-}
-
-
-  function closeModal() {
-    modal.style.display = "none";
-    audio.pause();
-  }
-
-  window.onclick = function(e) {
-    if(e.target === modal) closeModal();
-  }
-
-  function startConfetti() {
-    const modalContent = document.getElementById("modalContent");
-    for(let i=0;i<30;i++){
-      const confetti = document.createElement("div");
-      confetti.className="confetti";
-      confetti.style.backgroundColor = ['#ff4b5c','#ff9a9e','#fad0c4','#ffe066'][Math.floor(Math.random()*4)];
-      confetti.style.left = Math.random() * modalContent.offsetWidth + "px";
-      confetti.style.top = Math.random() * 20 + "px";
-      confetti.style.animationDuration = 2 + Math.random()*1.5 + "s";
-      modalContent.appendChild(confetti);
-      setTimeout(()=>confetti.remove(),2000);
+      errorIndex = (errorIndex + 1) % errors.length;
+      if (!dodgeMode && errorIndex === 3) enableDodge();
     }
-  }
-</script>
+
+    function showError(text) {
+      const err = document.createElement("div");
+      err.className = "error";
+      err.innerText = text;
+      document.body.appendChild(err);
+      setTimeout(() => err.remove(), 2500);
+    }
+
+    function enableDodge() {
+      dodgeMode = true;
+      document.addEventListener("mousemove", (e) => {
+        const rect = noBtn.getBoundingClientRect();
+        const buffer = 50;
+        if (e.clientX > rect.left - buffer && e.clientX < rect.right + buffer &&
+            e.clientY > rect.top - buffer && e.clientY < rect.bottom + buffer) {
+          const x = Math.random() * (window.innerWidth - rect.width);
+          const y = Math.random() * (window.innerHeight - rect.height);
+          noBtn.style.position = "absolute";
+          noBtn.style.left = x + "px";
+          noBtn.style.top = y + "px";
+        }
+      });
+    }
+
+    const modal = document.getElementById("modal");
+    const audio = document.getElementById("valentineSong");
+
+    function sayYes() {
+      modal.style.display = "flex";
+      audio.currentTime = 0;
+      audio.play();
+      startConfetti();
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+      audio.pause();
+    }
+
+    window.onclick = function(e) {
+      if (e.target === modal) closeModal();
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 18 + 14 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 450);
+
+    function startConfetti() {
+      const modalContent = document.getElementById("modalContent");
+      for (let i = 0; i < 30; i++) {
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.style.backgroundColor =
+          ['#ff4b5c','#ff9a9e','#fad0c4','#ffe066'][Math.floor(Math.random()*4)];
+        confetti.style.left = Math.random() * modalContent.offsetWidth + "px";
+        confetti.style.top = Math.random() * 20 + "px";
+        confetti.style.animationDuration = 2 + Math.random() * 1.5 + "s";
+        modalContent.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 2000);
+      }
+    }
+  </script>
 
 </body>
 </html>
-
-
-
-
