@@ -7,7 +7,7 @@
 <style>
   body {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     display: flex;
     justify-content: center;
@@ -16,42 +16,42 @@
     color: #fff;
     text-align: center;
     overflow: hidden;
+    padding: 20px;
   }
 
   .card {
     background: rgba(255, 255, 255, 0.2);
-    padding: 40px;
-    border-radius: 20px;
-    max-width: 420px;
-    width: 90%;
+    padding: 50px 40px;
+    border-radius: 25px;
+    max-width: 500px;
+    width: 100%;
     position: relative;
     z-index: 2;
   }
 
   h1 {
-    margin-bottom: 10px;
-    font-size: 2.1em;
+    margin-bottom: 15px;
+    font-size: 2.6em;
   }
 
   .subtitle {
-    font-size: 1em;
-    opacity: 0.9;
-    margin-bottom: 25px;
+    font-size: 1.2em;
+    margin-bottom: 30px;
   }
 
   .buttons {
-    margin-top: 20px;
+    margin-top: 25px;
     position: relative;
-    height: 70px;
+    min-height: 80px;
   }
 
   button {
     border: none;
-    padding: 12px 26px;
-    border-radius: 30px;
-    font-size: 1em;
+    padding: 16px 34px;
+    border-radius: 40px;
+    font-size: 1.2em;
     cursor: pointer;
-    margin: 10px;
+    margin: 12px;
     transition: transform 0.3s ease;
   }
 
@@ -66,16 +66,14 @@
   }
 
   .note {
-    font-size: 0.95em;
-    opacity: 0.9;
-    margin-top: 15px;
+    font-size: 1.1em;
+    margin-top: 20px;
   }
 
-  /* Floating Hearts */
   .heart {
     position: absolute;
     bottom: -20px;
-    font-size: 20px;
+    font-size: 22px;
     animation: floatUp linear infinite;
     opacity: 0.8;
     z-index: 1;
@@ -86,27 +84,6 @@
     to { transform: translateY(-110vh); opacity: 0; }
   }
 
-  /* Error popup */
-  .error {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    color: #ff4b5c;
-    padding: 10px 16px;
-    border-radius: 12px;
-    font-size: 0.9em;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    animation: fadeOut 2.5s forwards;
-    z-index: 5;
-  }
-
-  @keyframes fadeOut {
-    to { opacity: 0; }
-  }
-
-  /* Modal */
   .modal {
     position: fixed;
     inset: 0;
@@ -121,14 +98,12 @@
   .modal-content {
     background: white;
     color: #ff4b5c;
-    padding: 30px;
-    border-radius: 20px;
-    max-width: 380px;
+    padding: 40px 30px;
+    border-radius: 25px;
+    max-width: 420px;
     width: 100%;
     text-align: center;
-    position: relative;
     animation: pop 0.3s ease;
-    overflow: hidden;
   }
 
   @keyframes pop {
@@ -138,21 +113,21 @@
 
   .modal-content img {
     max-width: 100%;
-    border-radius: 12px;
-    margin-top: 15px;
+    border-radius: 15px;
+    margin-top: 20px;
   }
 
   .close-btn {
-    margin-top: 20px;
+    margin-top: 25px;
     background: #ff4b5c;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 14px 30px;
+    border-radius: 30px;
     cursor: pointer;
+    font-size: 1.1em;
   }
 
-  /* Confetti */
   .confetti {
     position: absolute;
     width: 8px;
@@ -167,50 +142,24 @@
     100% { transform: translateY(200px) rotate(360deg); opacity: 0; }
   }
 
-  /* Mobile adjustments */
-  @media (max-width: 600px) {
+  /* Extra scaling for small phones */
+  @media (max-width: 480px) {
     .card {
-      padding: 50px 25px;
-      border-radius: 25px;
+      padding: 60px 25px;
     }
 
     h1 {
-      font-size: 2.5em;
-    }
-
-    .subtitle {
-      font-size: 1.2em;
+      font-size: 2.8em;
     }
 
     button {
-      padding: 16px 32px;
-      font-size: 1.2em;
-      border-radius: 40px;
-    }
-
-    .note {
-      font-size: 1.1em;
-      margin-top: 20px;
-    }
-
-    .modal-content {
-      padding: 40px 25px;
-    }
-
-    .modal-content h2 {
-      font-size: 1.8em;
-    }
-
-    .modal-content p {
-      font-size: 1.2em;
-    }
-
-    .close-btn {
-      padding: 14px 28px;
-      font-size: 1.1em;
+      width: 100%;
+      max-width: 260px;
+      font-size: 1.3em;
     }
   }
 </style>
+
 
 </head>
 <body>
@@ -352,5 +301,6 @@
 
 </body>
 </html>
+
 
 
